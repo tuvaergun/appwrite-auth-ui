@@ -23,7 +23,7 @@ export type AppwritePage = {
 } & Models.Document;
 
 export const AppwriteClient = new Client()
-	.setEndpoint('http://bilpp.cloud/v1')
+	.setEndpoint('https://bilpp.cloud/v1')
 	.setProject('651820dfa4194d96b596');
 
 export const AppwriteDatabases = new Databases(AppwriteClient);
