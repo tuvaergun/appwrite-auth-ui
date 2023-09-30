@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { PUBLIC_AUTHUI_PAGE_ID, PUBLIC_HOSTNAME, PUBLIC_HOSTNAME_PROTOCOL } from '$env/static/public';
+	import {
+		PUBLIC_AUTHUI_PAGE_ID,
+		PUBLIC_HOSTNAME,
+		PUBLIC_HOSTNAME_PROTOCOL
+	} from '$env/static/public';
 
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
@@ -26,15 +30,15 @@
 		<div class="main-header-end u-margin-inline-end-16">
 			<ul class="buttons-list is-with-padding">
 				<li class="buttons-list-item">
-					<a href="https://github.com/Meldiron/authui" target="_blank" class="button is-secondary"
-						><span aria-hidden="true" class="icon-star" /><span class="text">Star on GitHub</span
-						></a
-					>
+					<a href="https://github.com/Meldiron/authui" target="_blank" class="button is-secondary">
+						<span aria-hidden="true" class="icon-star" /><span class="text">Star on GitHub</span>
+					</a>
 				</li>
 				{#if $accountStore}
 					<li class="buttons-list-item u-padding-inline-0">
-						<a href={`${PUBLIC_HOSTNAME_PROTOCOL}://${PUBLIC_AUTHUI_PAGE_ID}.${PUBLIC_HOSTNAME}/`} class="button is-only-icon is-text"
-							><span aria-hidden="true" class="icon-user" /></a
+						<a
+							href={`${PUBLIC_HOSTNAME_PROTOCOL}://${PUBLIC_AUTHUI_PAGE_ID}.${PUBLIC_HOSTNAME}/`}
+							class="button is-only-icon is-text"><span aria-hidden="true" class="icon-user" /></a
 						>
 					</li>
 				{/if}
@@ -45,11 +49,11 @@
 		<div class="top-cover u-padding-block-end-56">
 			<div class="container cover-padding-top-big-screen">
 				{#if isSubpage}
-					<a href="/" class="button is-text" style="padding: 0px;"
-						><span class="icon-cheveron-left" aria-hidden="true" /><span class="text"
-							>Back to Homepage</span
-						></a
-					>
+					<a href="/" class="button is-text" style="padding: 0px;">
+						<span class="icon-cheveron-left" aria-hidden="true" /><span class="text">
+							Back to Homepage
+						</span>
+					</a>
 				{/if}
 
 				<div class="u-flex u-gap-16 u-flex-justify-center u-margin-block-start-16">

@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let password = '';
+	export var password = '';
 
 	let visiblePassword = false;
 </script>
