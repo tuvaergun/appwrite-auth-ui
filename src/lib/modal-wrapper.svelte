@@ -57,8 +57,10 @@
 				<div class="alert-sticky-buttons u-flex">
 					<a
 						href={`${PUBLIC_HOSTNAME_PROTOCOL}://${PUBLIC_HOSTNAME}/`}
-						class="button is-text is-small"><span class="text">Create Page</span></a
+						class="button is-text is-small"
 					>
+						<span class="text">Create Page</span>
+					</a>
 				</div>
 			</section>
 		</div>

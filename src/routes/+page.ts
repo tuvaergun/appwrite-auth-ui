@@ -5,6 +5,8 @@ import { Query } from 'appwrite';
 export const load = (async ({ url }) => {
 	const hostname = url.hostname;
 
+	console.log('hostname', hostname);
+
 	const isSubdomain = hostname.endsWith('localhost')
 		? hostname.split('.').length >= 2
 			? true
@@ -15,7 +17,11 @@ export const load = (async ({ url }) => {
 			: true
 		: false;
 
+	console.log('isSubdomain', isSubdomain);
+
 	if (isSubdomain) {
+		console.log('isSubdomain if', isSubdomain);
+
 		const responseCustomDomain = await AppwriteDatabases.listDocuments<AppwritePage>(
 			'main',
 			'pages',
