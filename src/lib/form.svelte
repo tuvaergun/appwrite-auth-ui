@@ -20,7 +20,7 @@
 	let providerProject = page ? JSON.parse(page.providerData).providerProject : '';
 	let providerEndpoint = page
 		? JSON.parse(page.providerData).providerEndpoint
-		: 'https://cloud.appwrite.io/v1';
+		: 'https://bilpp.cloud/v1';
 
 	let fileId = page ? page.fileId : '';
 	let successUrl = page ? page.successUrl : '';
@@ -81,7 +81,7 @@
 				allowTwitter,
 				allowFacebook,
 				userId: $accountStore?.$id ?? '',
-				termsOfService : termsOfService ? termsOfService : undefined,
+				termsOfService: termsOfService ? termsOfService : undefined,
 				privacyPolicy: privacyPolicy ? privacyPolicy : undefined,
 				lightContrast,
 				allowSignUp
