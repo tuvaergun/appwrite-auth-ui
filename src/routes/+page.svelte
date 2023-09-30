@@ -12,7 +12,7 @@
 			? true
 			: false
 		: $page.url.hostname.split('.').length >= 3
-		? $page.url.hostname.startsWith('login')
+		? $page.url.hostname.startsWith('www')
 			? false
 			: true
 		: false;
