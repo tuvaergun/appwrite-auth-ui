@@ -10,7 +10,6 @@ export const load = (async ({ url }) => {
 		'pages',
 		[Query.limit(1), Query.equal('customDomain', hostname)]
 	);
-	console.log('responseCustomDomain', responseCustomDomain);
 
 	if (responseCustomDomain.documents.length > 0) {
 		return {

@@ -5,14 +5,11 @@ import { Query } from 'appwrite';
 export const load = (async ({ url }) => {
 	const hostname = url.hostname;
 
-	console.log('hostname', hostname);
-
 	const responseCustomDomain = await AppwriteDatabases.listDocuments<AppwritePage>(
 		'main',
 		'pages',
 		[Query.limit(1), Query.equal('customDomain', hostname)]
 	);
-	console.log('responseCustomDomain', responseCustomDomain);
 
 	if (responseCustomDomain.documents.length > 0) {
 		return {
