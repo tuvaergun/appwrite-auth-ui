@@ -62,7 +62,11 @@
 				{#each myPages as page}
 					<tr class="table-row">
 						<td class="table-col" data-title="Document ID">
-							<a href={`${PUBLIC_HOSTNAME_PROTOCOL}://${page.domain}.${PUBLIC_HOSTNAME}/`} target="_blank" class="tag">
+							<a
+								href={`${PUBLIC_HOSTNAME_PROTOCOL}://${page.domain}.${PUBLIC_HOSTNAME}/`}
+								target="_blank"
+								class="tag"
+							>
 								<span class="icon-external-link" aria-hidden="true" />
 								<span class="text">{page.domain}.{PUBLIC_HOSTNAME}</span>
 							</a>
@@ -70,9 +74,9 @@
 						<td class="table-col" data-title="Name"><span class="text">{page.name}</span></td>
 						<td data-title="Actions" class="table-col">
 							<div class="u-flex u-cross-center u-gap-8">
-								<a href={`/pages/${page.$id}/edit`} class="button is-secondary" type="button"
-									>Edit</a
-								>
+								<a href={`/pages/${page.$id}/edit`} class="button is-secondary" type="button">
+									Edit
+								</a>
 								<a href={`/pages/${page.$id}/info`} class="button is-text" type="button">Info</a>
 							</div>
 						</td>

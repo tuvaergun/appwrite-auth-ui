@@ -7,45 +7,29 @@ export const load = (async ({ url }) => {
 
 	console.log('hostname', hostname);
 
-	const isSubdomain = hostname.endsWith('localhost')
-		? hostname.split('.').length >= 2
-			? true
-			: false
-		: hostname.split('.').length >= 3
-		? hostname.startsWith('www')
-			? false
-			: true
-		: false;
+	const responseCustomDomain = await AppwriteDatabases.listDocuments<AppwritePage>(
+		'main',
+		'pages',
+		[Query.limit(1), Query.equal('customDomain', hostname)]
+	);
+	console.log('responseCustomDomain', responseCustomDomain);
 
-	console.log('isSubdomain', isSubdomain);
+	if (responseCustomDomain.documents.length > 0) {
+		return {
+			page: responseCustomDomain.documents[0]
+		};
+	}
 
-	if (isSubdomain) {
-		console.log('isSubdomain if', isSubdomain);
+	const domain = hostname.split('.')[0];
+	const response = await AppwriteDatabases.listDocuments<AppwritePage>('main', 'pages', [
+		Query.limit(1),
+		Query.equal('domain', domain)
+	]);
 
-		const responseCustomDomain = await AppwriteDatabases.listDocuments<AppwritePage>(
-			'main',
-			'pages',
-			[Query.limit(1), Query.equal('customDomain', hostname)]
-		);
-		console.log('responseCustomDomain', responseCustomDomain);
-
-		if (responseCustomDomain.documents.length > 0) {
-			return {
-				page: responseCustomDomain.documents[0]
-			};
-		}
-
-		const domain = hostname.split('.')[0];
-		const response = await AppwriteDatabases.listDocuments<AppwritePage>('main', 'pages', [
-			Query.limit(1),
-			Query.equal('domain', domain)
-		]);
-
-		if (response.documents.length > 0) {
-			return {
-				page: response.documents[0]
-			};
-		}
+	if (response.documents.length > 0) {
+		return {
+			page: response.documents[0]
+		};
 	}
 
 	return {
